@@ -14,7 +14,7 @@ function Home() {
     <>
         <Header/>
         <Banner/>
-        <Services/>
+        {/* <Services/> */}
         {/* <WhatWeDo/> */}
         <Advantage/>
         <BusinessServices/>

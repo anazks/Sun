@@ -1,87 +1,151 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function BusinessServices() {
+  const [activeTab, setActiveTab] = useState('hr');
+  
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      {/* HR Services Section */}
-      <div className="mb-10 border-b pb-8">
-        <div className="flex items-center mb-4">
-          <span className="text-blue-600 text-2xl mr-2">👥</span>
-          <h2 className="text-2xl font-bold text-blue-800">Human Resources (HR) Services</h2>
-        </div>
-        
-        <h3 className="text-xl font-semibold text-blue-700 mb-2">Empowering Your Workforce for Success</h3>
-        <p className="mb-6">
-          Our HR services are designed to manage your human capital effectively, ensuring compliance, engagement, and development.
-        </p>
-        
-        <div className="mb-6">
-          <h4 className="font-bold mb-2">Scope of Services:</h4>
-          <ul className="list-disc pl-5 space-y-1">
-            <li><span className="font-semibold">Recruitment & Onboarding</span>: Attracting top talent and ensuring seamless integration into your organization.</li>
-            <li><span className="font-semibold">Payroll & Benefits Administration</span>: Managing employee compensation, benefits enrollment, and compliance.</li>
-            <li><span className="font-semibold">Performance Management</span>: Implementing systems to monitor and enhance employee performance.</li>
-            <li><span className="font-semibold">Training & Development</span>: Offering programs to upskill employees and foster career growth.</li>
-            <li><span className="font-semibold">Compliance & Risk Management</span>: Ensuring adherence to labor laws and mitigating HR-related risks.</li>
-          </ul>
-        </div>
-        
-        <div className="mb-6">
-          <h4 className="font-bold mb-2">Key Benefits:</h4>
-          <ul className="list-disc pl-5 space-y-1">
-            <li><span className="font-semibold">Enhanced Employee Satisfaction</span>: Foster a positive work environment that boosts morale and retention.</li>
-            <li><span className="font-semibold">Regulatory Compliance</span>: Stay ahead of legal requirements and avoid potential penalties.</li>
-            <li><span className="font-semibold">Strategic HR Planning</span>: Align HR initiatives with business goals for long-term success.</li>
-          </ul>
-        </div>
-        
-        <div className="bg-blue-50 p-4 rounded flex items-center justify-between">
-          <p className="font-semibold">Looking to optimize your HR functions?</p>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-            👉 Book a Free Consultation
-          </button>
-        </div>
+    <div className="max-w-4xl mx-auto p-6 bg-gray-50 rounded-xl shadow-sm font-sans">
+      <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">Our Business Services</h1>
+      
+      {/* Service Tabs */}
+      <div className="flex mb-6 border-b border-gray-200">
+        <button
+          onClick={() => setActiveTab('hr')}
+          className={`px-4 py-2 font-medium text-sm transition-colors ${
+            activeTab === 'hr' 
+              ? 'text-blue-600 border-b-2 border-blue-600' 
+              : 'text-gray-600 hover:text-blue-600'
+          }`}
+        >
+          Human Resources
+        </button>
+        <button
+          onClick={() => setActiveTab('finance')}
+          className={`px-4 py-2 font-medium text-sm transition-colors ${
+            activeTab === 'finance' 
+              ? 'text-indigo-600 border-b-2 border-indigo-600' 
+              : 'text-gray-600 hover:text-indigo-600'
+          }`}
+        >
+          Finance & Accounting
+        </button>
       </div>
       
-      {/* Finance & Accounting Services Section */}
-      <div>
-        <div className="flex items-center mb-4">
-          <span className="text-blue-600 text-2xl mr-2">💼</span>
-          <h2 className="text-2xl font-bold text-blue-800">Finance & Accounting Services</h2>
+      {/* HR Services Content */}
+      {activeTab === 'hr' && (
+        <div className="space-y-6">
+          <div className="flex items-center gap-3">
+            <div className="bg-blue-500 text-white rounded-full p-2">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            </div>
+            <h2 className="text-xl font-bold text-gray-800">Human Resources (HR) Services</h2>
+          </div>
+          
+          <p className="text-gray-700">
+            Our HR services help manage your workforce effectively, ensuring compliance, engagement, and development.
+          </p>
+          
+          <div className="bg-white p-4 rounded-lg shadow-sm">
+            <h3 className="font-bold text-gray-800 mb-3">Services Include:</h3>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-500 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Recruitment & Onboarding</span>
+              </div>
+              <div className="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-500 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Payroll & Benefits</span>
+              </div>
+              <div className="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-500 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Performance Management</span>
+              </div>
+              <div className="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-500 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Training & Development</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-blue-50 p-4 rounded-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="font-medium text-gray-800">Ready to optimize your HR functions?</p>
+            <button className="bg-blue-500 hover:bg-blue-600 transition-colors text-white px-5 py-2 rounded-lg shadow-sm text-sm font-medium flex items-center">
+              Get Started
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         </div>
-        
-        <h3 className="text-xl font-semibold text-blue-700 mb-2">Driving Financial Clarity and Control</h3>
-        <p className="mb-6">
-          Our finance and accounting services provide accurate, timely, and insightful financial information to support strategic decision-making.
-        </p>
-        
-        <div className="mb-6">
-          <h4 className="font-bold mb-2">Scope of Services:</h4>
-          <ul className="list-disc pl-5 space-y-1">
-            <li><span className="font-semibold">Accounts Payable & Receivable Management</span>: Ensuring efficient processing of incoming and outgoing payments.</li>
-            <li><span className="font-semibold">General Ledger Maintenance</span>: Keeping accurate records of all financial transactions.</li>
-            <li><span className="font-semibold">Financial Reporting & Analysis</span>: Providing comprehensive reports to inform business strategies.</li>
-            <li><span className="font-semibold">Budgeting & Forecasting</span>: Assisting in the preparation of financial plans and projections.</li>
-            <li><span className="font-semibold">Tax Compliance & Planning</span>: Managing tax obligations and identifying savings opportunities.</li>
-          </ul>
+      )}
+      
+      {/* Finance Services Content */}
+      {activeTab === 'finance' && (
+        <div className="space-y-6">
+          <div className="flex items-center gap-3">
+            <div className="bg-indigo-500 text-white rounded-full p-2">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h2 className="text-xl font-bold text-gray-800">Finance & Accounting Services</h2>
+          </div>
+          
+          <p className="text-gray-700">
+            Our finance services provide accurate, timely financial information to support strategic decision-making.
+          </p>
+          
+          <div className="bg-white p-4 rounded-lg shadow-sm">
+            <h3 className="font-bold text-gray-800 mb-3">Services Include:</h3>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-500 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Accounts Payable & Receivable</span>
+              </div>
+              <div className="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-500 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Financial Reporting</span>
+              </div>
+              <div className="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-500 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Budgeting & Forecasting</span>
+              </div>
+              <div className="flex items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-indigo-500 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Tax Compliance & Planning</span>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-indigo-50 p-4 rounded-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="font-medium text-gray-800">Need expert financial management?</p>
+            <button className="bg-indigo-500 hover:bg-indigo-600 transition-colors text-white px-5 py-2 rounded-lg shadow-sm text-sm font-medium flex items-center">
+              Get Started
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         </div>
-        
-        <div className="mb-6">
-          <h4 className="font-bold mb-2">Key Benefits:</h4>
-          <ul className="list-disc pl-5 space-y-1">
-            <li><span className="font-semibold">Financial Accuracy</span>: Maintain precise financial records to support business operations.</li>
-            <li><span className="font-semibold">Informed Decision-Making</span>: Utilize detailed reports to guide strategic planning.</li>
-            <li><span className="font-semibold">Cost Efficiency</span>: Reduce overhead by outsourcing complex financial tasks.</li>
-          </ul>
-        </div>
-        
-        <div className="bg-blue-50 p-4 rounded flex items-center justify-between">
-          <p className="font-semibold">Need expert financial management?</p>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-            👉 Book a Free Consultation
-          </button>
-        </div>
-      </div>
+      )}
     </div>
   )
 }
